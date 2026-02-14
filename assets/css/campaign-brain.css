@@ -1,0 +1,81 @@
+.campaign-brain-app .section-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  background: #fff;
+}
+
+.grid-2,
+.grid-3 {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 900px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+.toolbar-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 8px 0 12px;
+}
+
+#import-data { display: none; }
+
+.roll-result {
+  border-left: 4px solid #2d7;
+  background: #f6fffb;
+  padding: 10px;
+  border-radius: 4px;
+  min-height: 44px;
+  margin-bottom: 12px;
+}
+
+.entry-editor {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.entry-row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 8px;
+  align-items: start;
+}
+
+.entry-row textarea {
+  width: 100%;
+  min-height: 58px;
+}
+
+.wiki-item {
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.wiki-meta {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.campaign-brain-app select[multiple] {
+  min-height: 120px;
+}
+
+.campaign-brain-app input[type="text"],
+.campaign-brain-app select,
+.campaign-brain-app textarea {
+  width: 100%;
+  box-sizing: border-box;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campaign Brain Work Palace</title>
+  <link rel="stylesheet" href="assets/themes/twitter/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/campaign-brain.css" />
+</head>
+<body>
+  <div class="container campaign-brain-app">
+    <div class="page-header">
+      <h1>Campaign Brain Work Palace <small>d100 tables + campaign wiki</small></h1>
+    </div>
+
+    <p class="lead">A solo DM toolkit for D&D 5e (2024): d100 rolling, campaign wiki, and planning notes.</p>
+
+    <div class="alert alert-info">
+      <strong>Free mode enabled:</strong> This app runs locally in your browser and does not call paid AI APIs.
+    </div>
+
+    <div class="toolbar-row">
+      <button id="export-data" class="btn btn-primary">Export Data (.json)</button>
+      <label class="btn" for="import-data">Import Data</label>
+      <input id="import-data" type="file" accept="application/json" />
+      <button id="reset-data" class="btn btn-danger">Reset All Data</button>
+      <span id="save-status" class="muted"></span>
+    </div>
+
+    <hr>
+
+    <section class="section-card">
+      <h2>1) d100 Engine</h2>
+
+      <div class="grid-2">
+        <div>
+          <label for="table-category">Category</label>
+          <select id="table-category"></select>
+        </div>
+        <div>
+          <label for="tone-select">Tone Tags (multi-select)</label>
+          <select id="tone-select" multiple>
+            <option>Funny</option>
+            <option>Honest</option>
+            <option>Deep Character Drama</option>
+            <option>Hopeful</option>
+            <option>Dark</option>
+            <option>Mystery</option>
+            <option>High Adventure</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="tone-free-text">Tone Notes (free text)</label>
+      <input id="tone-free-text" type="text" placeholder="Example: heartfelt but playful, personal stakes over epic politics" />
+
+      <div class="toolbar-row">
+        <button id="roll-d100" class="btn btn-success btn-large">Roll d100</button>
+        <button id="reroll-d100" class="btn">Reroll</button>
+      </div>
+
+      <div id="roll-result" class="roll-result">Roll to get an entry.</div>
+
+      <h3>Edit d100 entries</h3>
+      <p class="muted">All categories have 100 editable slots. You are currently editing entries <strong id="entry-range"></strong>.</p>
+      <div class="toolbar-row">
+        <button id="prev-page" class="btn">Previous 20</button>
+        <button id="next-page" class="btn">Next 20</button>
+        <button id="fill-defaults" class="btn btn-warning">Rebuild Selected Category Defaults</button>
+      </div>
+      <div id="entry-editor" class="entry-editor"></div>
+    </section>
+
+    <section class="section-card">
+      <h2>2) Campaign Wiki</h2>
+      <div class="grid-3">
+        <div>
+          <label for="wiki-type">Type</label>
+          <select id="wiki-type">
+            <option>Character</option>
+            <option>Location</option>
+            <option>Faction</option>
+            <option>Quest</option>
+            <option>Villain</option>
+            <option>Item</option>
+            <option>Rule Note</option>
+            <option>Custom</option>
+          </select>
+        </div>
+        <div>
+          <label for="wiki-name">Name</label>
+          <input id="wiki-name" type="text" placeholder="Entry name" />
+        </div>
+        <div>
+          <label for="wiki-tags">Tags (comma-separated)</label>
+          <input id="wiki-tags" type="text" placeholder="funny, tragic, city, arc-1" />
+        </div>
+      </div>
+
+      <label for="wiki-content">Details</label>
+      <textarea id="wiki-content" rows="4" placeholder="Notes, links, goals, secrets, relationships..."></textarea>
+
+      <div class="toolbar-row">
+        <button id="add-wiki" class="btn btn-primary">Save Entry</button>
+        <input id="wiki-search" type="text" placeholder="Search wiki" />
+      </div>
+
+      <div id="wiki-list" class="wiki-list"></div>
+    </section>
+
+    <section class="section-card">
+      <h2>3) DM Toolkit Notes</h2>
+      <div class="grid-2">
+        <div>
+          <label for="rules-notes">General Rules (5e 2024 reminders)</label>
+          <textarea id="rules-notes" rows="8"></textarea>
+        </div>
+        <div>
+          <label for="session-notes">Session Prep / Running Notes</label>
+          <textarea id="session-notes" rows="8"></textarea>
+        </div>
+        <div>
+          <label for="story-arcs">Story Arcs</label>
+          <textarea id="story-arcs" rows="8"></textarea>
+        </div>
+        <div>
+          <label for="world-structure">World Structure & Places</label>
+          <textarea id="world-structure" rows="8"></textarea>
+        </div>
+        <div>
+          <label for="villains-notes">Evil Guys / Antagonists</label>
+          <textarea id="villains-notes" rows="8"></textarea>
+        </div>
+        <div>
+          <label for="player-characters">Player Characters</label>
+          <textarea id="player-characters" rows="8"></textarea>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="assets/js/campaign-brain.js"></script>
+</body>
+</html>
